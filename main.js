@@ -11,7 +11,17 @@ for (let glyph of articleHearts)
   glyph.addEventListener("click", likeCallback);
 }
 
-
+function likeCallback(e) {
+  let heart = e.target;
+  mimicServerCall("bogusUrl")
+    .then(function(serverMessage){
+       heart.innerText = glyphStates[heart.innerText];
+       heart.style.color = colorStates[heart.style.color];
+    })
+    .catch(function(error) {
+      document.getElementById("modal").className = "";
+    });
+}
 
 //------------------------------------------------------------------------------
 // Ignore after this point. Used only for demo purposes
