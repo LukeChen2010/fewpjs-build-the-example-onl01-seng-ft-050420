@@ -11,7 +11,8 @@ for (let glyph of articleHearts)
   glyph.addEventListener("click", likeCallback);
 }
 
-function likeCallback(e) {
+function likeCallback(e) 
+{
   let heart = e.target;
   mimicServerCall("bogusUrl")
     .then(function(serverMessage){
